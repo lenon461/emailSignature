@@ -3,6 +3,7 @@
 node_modules
 dist
 src
+credentials.json
 # Quasar core related directories
 .quasar
 

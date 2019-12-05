@@ -148,7 +148,7 @@ module.exports = function (ctx) {
 
     // https://quasar.dev/quasar-cli/developing-electron-apps/configuring-electron
     electron: {
-      // bundler: 'builder', // or 'packager'
+      bundler: 'builder', // or 'packager'
 
       packager: {
         // https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#options
@@ -162,11 +162,15 @@ module.exports = function (ctx) {
         // Windows only
         // win32metadata: { ... }
       },
-
       builder: {
-        // https://www.electron.build/configuration/configuration
-
-        // appId: 'email-signature'
+        win: {
+          target: 'nsis',
+          icon: 'src-electron/icons/icon.ico'
+        },
+        nsis: {
+          'oneClick': false
+        },
+        appId: 'email-signature'
       },
 
       // keep in sync with /src-electron/main-process/electron-main
